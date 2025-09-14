@@ -1,0 +1,21 @@
+[project]
+name = "mcp-api"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi[standard]>=0.116.1",
+    "html2text>=2025.4.15",
+    "langchain-community>=0.3.29",
+    "mcp[cli]>=1.14.0",
+    "pypdf2>=3.0.1",
+    "python-multipart>=0.0.20",
+    "pytube>=15.0.0",
+    "requests>=2.32.5",
+    "youtube-transcript-api>=1.2.2",
+]
+
+[tool.setuptools.packages.find]
+where = ["./mcp_api/"]
+include = ["utils"]
