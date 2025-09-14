@@ -4,10 +4,12 @@ import PyPDF2
 from langchain_community.document_loaders import YoutubeLoader
 from youtube_transcript_api import YouTubeTranscriptApi
 from mcp.server import FastMCP
+import logging
 
 from schemas.output_text import OutputText
 from schemas.output_type_enum import OutputTypeEnum
 
+logging.basicConfig(level=logging.DEBUG)
 
 server = FastMCP(
     name="File management tools",
@@ -106,4 +108,4 @@ async def get_text_from_pdf(
     return OutputText(type=OutputTypeEnum.PDF_FILE, content=str('\n'.join(texts)), title=title)
 
 if __name__ == '__main__':
-    server.run(transport='stdio')
+    server.run(transport='streamable-http')
